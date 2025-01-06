@@ -12,6 +12,9 @@ def interpreter_file():
     )
     argparser.add_argument("file", type=str, nargs="?", help="The file to interpret")
     args = argparser.parse_args()
+    if not args.file:
+        print("File missing")
+        exit()
     args.repl = False
 
     interpreter.main(args)
